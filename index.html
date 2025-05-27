@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ur">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgba(238, 185, 87, 0.904);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+      .container{
+        padding: 12px 21px;
+        background-color: rgba(255, 255, 255, 0.507);
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.336);
+        width: 50%;
+
+      }
+      input{
+        padding: 5px 12px;
+        width: 60%;
+        border: 1px solid rgba(128, 128, 128, 0.151);
+    
+      }
+      button{
+        background-color: rgba(53, 155, 155, 0.726);
+        padding: 6px 6px;
+        color: white;
+        border: none;
+      }
+
+      ul {
+        list-style-type: decimal;
+        padding: 0;
+      }
+      li {
+        margin: 5px 0;
+        background: rgba(153, 146, 146, 0.26);
+        padding: 5px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>To Do List</h2>
+      <div class="row">
+        <input type="text" id="putInput" placeholder="Write a new job" />
+        <button onclick="addJob()">Add</button>
+      </div>
+
+      <ul id="taskList">
+        
+      </ul>
+    </div>
+
+    <script>
+      function addJob() {
+        var input = document.getElementById("putInput");
+        var taskText = input.value;
+
+        if (taskText === "") {
+          alert("Please put some text here!");
+          return;
+        }
+
+        var li = document.createElement("li");
+        li.textContent = taskText;
+
+        document.getElementById("taskList").appendChild(li);
+
+        input.value = "";
+      }
+    </script>
+  </body>
+</html>
